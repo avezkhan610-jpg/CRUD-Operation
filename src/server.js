@@ -10,12 +10,13 @@ const PORT = process.env.PORT;
 
 app.use("/api/auth", authRoutes);
 
+app.get("/", (_, res) => {
+  return res.status(200).json({ message: "Hello from server" });
+});
+
 connectDB();
 
 // table sync (optional)
 sequelize.sync();
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-// this is test commit=
-//test commmit 2
