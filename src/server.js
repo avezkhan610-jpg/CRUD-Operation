@@ -18,3 +18,4 @@ sequelize.sync();
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // this is test commit=
+//test commmit 2
