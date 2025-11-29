@@ -1,10 +1,19 @@
 import { Sequelize } from "sequelize";
+import "dotenv/config";
 
-export const sequelize = new Sequelize("postgres", "postgres", "avez1234", {
-  host: "localhost",
-  dialect: "postgres",
-  logging: false,
-});
+const { postgres_db, postgress_user, postgress_password, postgress_host } =
+  process.env;
+
+export const sequelize = new Sequelize(
+  postgres_db,
+  postgress_user,
+  postgress_password,
+  {
+    host: postgress_host,
+    dialect: "postgres",
+    logging: false,
+  }
+);
 
 export const connectDB = async () => {
   try {
