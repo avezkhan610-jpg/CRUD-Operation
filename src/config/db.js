@@ -1,7 +1,11 @@
 import { Sequelize } from "sequelize";
+import "dotenv/config";
 
-export const sequelize = new Sequelize("postgres", "postgres", "avez1234", {
-  host: "localhost",
+const { postgres_user, postgres_password, postgres_db, postgres_host } =
+  process.env;
+
+export const sequelize = new Sequelize( postgres_db, postgres_user, postgres_password, {
+  host: postgres_host,
   dialect: "postgres",
   logging: false,
 });
